@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KAAD Portraits</title>
+<meta name="description" content="KAAD Portraits — curated photography portfolio." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0c10'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Georgia,serif' fill='%23e5c158' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0a0c10" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="KAAD Portraits" />
+<meta property="og:description" content="Curated photography portfolio." />
+<meta property="og:image" content="" id="ogImageMeta" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #0a0c10;
+  --bg-card: rgba(18, 22, 30, 0.75);
+  --bg-card-hover: rgba(28, 34, 46, 0.85);
+  --bg-input: rgba(15, 18, 26, 0.9);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-gold: rgba(229, 193, 88, 0.35);
+  --primary-gold: #e5c158;
+  --primary-gold-hover: #f5d475;
+  --gold-glow: rgba(229, 193, 88, 0.25);
+  --text-main: #f0f3f8;
+  --text-muted: #9aa4b5;
+  --text-dim: #64748b;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.55);
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --space-page: clamp(1.15rem, 4vw, 2rem);
+  --space-section: clamp(3.5rem, 10vw, 7rem);
+}
+html.theme-light {
+  --bg-dark: #f7f5f0;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-input: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-gold: rgba(154, 116, 26, 0.35);
+  --primary-gold: #9a741a;
+  --primary-gold-hover: #b8922e;
+  --gold-glow: rgba(154, 116, 26, 0.2);
+  --text-main: #1a1a1a;
+  --text-muted: #6e695f;
+  --text-dim: #8a8478;
+  --shadow-sm: 0 4px 14px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+h1, h2, h3, h4, .brand-title { font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 600; color: var(--text-main); }
+.gold-text {
+  background: linear-gradient(135deg, #fff2c6 0%, #e5c158 50%, #9e7f26 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+html.theme-light .gold-text {
+  background: linear-gradient(135deg, #c9a227 0%, #9a741a 50%, #6b5010 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-page); }
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.glass:hover { border-color: var(--border-gold); }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.35rem; border-radius: 9999px; font-size: 0.8rem;
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer; transition: var(--transition);
+  font-family: var(--font-body);
+}
+.btn-primary { background: linear-gradient(135deg, #e5c158, #a68128); color: #0a0c10; box-shadow: 0 8px 24px var(--gold-glow); }
+.btn-primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn-ghost { background: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+.btn-ghost:hover { border-color: var(--primary-gold); color: var(--primary-gold); }
+.section { padding: var(--space-section) 0; }
+.section-label {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--primary-gold); margin-bottom: 0.75rem; font-weight: 600;
+}
+.section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+.section-sub { color: var(--text-muted); max-width: 36rem; margin-bottom: 2rem; }
+
+/* Nav */
+#siteNav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  transition: all 0.3s ease; padding: 1.25rem 0;
+  border-bottom: 1px solid transparent;
+}
+#siteNav.scrolled {
+  background: color-mix(in srgb, var(--bg-dark) 92%, transparent);
+  backdrop-filter: blur(16px); padding: 0.85rem 0;
+  border-bottom-color: var(--border-color);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+.nav-logo {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: linear-gradient(135deg, #e5c158, #a68128);
+  display: flex; align-items: center; justify-content: center; color: #0a0c10;
+  font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem;
+  box-shadow: 0 4px 15px var(--gold-glow);
+}
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
+.nav-actions { display: flex; align-items: center; gap: 0.65rem; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--border-color);
+  background: transparent; color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: var(--transition);
+}
+.icon-btn:hover { color: var(--primary-gold); border-color: var(--border-gold); }
+#mobileMenuBtn { display: none; }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  #mobileMenuBtn { display: flex; }
+}
+
+/* Mobile drawer */
+#mobileMenu {
+  position: fixed; inset: 0; z-index: 950;
+  background: color-mix(in srgb, var(--bg-dark) 96%, transparent);
+  backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; padding: 5rem var(--space-page) 2rem;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+#mobileMenu.open { opacity: 1; pointer-events: auto; }
+#mobileMenu a {
+  font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-main);
+  text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);
+}
+#mobileMenu a:hover { color: var(--primary-gold); }
+
+/* Hero */
+#home {
+  position: relative; min-height: 92vh; display: flex; align-items: flex-end;
+  padding: 8rem 0 4rem; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.45;
+  transform: scale(1.05);
+}
+html.theme-light .hero-bg img { opacity: 0.3; }
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 55%, color-mix(in srgb, var(--bg-dark) 70%, transparent) 100%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 720px; }
+.hero-content h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1rem; }
+.hero-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.75rem; max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* Album feature card */
+#album .album-card {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: center;
+}
+@media (max-width: 800px) { #album .album-card { grid-template-columns: 1fr; } }
+.album-photo {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 4/3; border: 1px solid var(--border-color);
+}
+.album-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.album-photo:hover img { transform: scale(1.04); }
+.album-photo a.overlay-link {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: 1rem; text-decoration: none;
+}
+.album-photo .open-badge {
+  background: rgba(10,12,16,0.85); color: var(--primary-gold);
+  padding: 0.45rem 0.9rem; border-radius: 9999px; font-size: 0.7rem;
+  letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border-gold);
+}
+
+/* Gallery */
+.cat-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+.cat-btn {
+  padding: 0.45rem 1rem; border-radius: 9999px; border: 1px solid transparent;
+  background: transparent; color: var(--text-muted); font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: var(--transition);
+  font-family: var(--font-body);
+}
+.cat-btn:hover { color: var(--text-main); }
+.cat-btn.active { border-color: var(--primary-gold); color: var(--text-main); }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+.gallery-card {
+  position: relative; border-radius: var(--radius-md); overflow: hidden;
+  aspect-ratio: 3/4; border: 1px solid var(--border-color); cursor: pointer;
+  background: var(--bg-card);
+}
+.gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-card:hover img { transform: scale(1.06); }
+.gallery-card .cap {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff;
+}
+#galleryEmpty { color: var(--text-muted); text-align: center; padding: 3rem 1rem; }
+
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.service-card { padding: 1.5rem; }
+.service-card h3 { font-size: 1.15rem; margin: 0.5rem 0 0.35rem; }
+.service-card .price { color: var(--primary-gold); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.75rem; }
+.service-card ul { list-style: none; color: var(--text-muted); font-size: 0.85rem; }
+.service-card li { padding: 0.25rem 0; padding-left: 1rem; position: relative; }
+.service-card li::before { content: '•'; position: absolute; left: 0; color: var(--primary-gold); }
+
+/* Terms */
+.terms-list { display: flex; flex-direction: column; gap: 1rem; }
+.term-item { padding: 1.25rem 1.5rem; }
+.term-item h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.term-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* Testimonials */
+.testimonials-track {
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch;
+}
+.testimonials-track.hide-scroll { scrollbar-width: none; }
+.testimonials-track.hide-scroll::-webkit-scrollbar { display: none; }
+.t-card {
+  flex: 0 0 min(320px, 85vw); scroll-snap-align: start; padding: 1.35rem;
+}
+.t-card p.quote { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-main); }
+.t-card .who { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); }
+.testimonials-vertical {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
+}
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; }
+@media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-meta a, .contact-meta button {
+  display: flex; align-items: center; gap: 0.6rem; color: var(--text-muted);
+  text-decoration: none; background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 0.9rem; padding: 0.35rem 0; transition: color 0.2s;
+}
+.contact-meta a:hover, .contact-meta button:hover { color: var(--primary-gold); }
+.contact-form label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.35rem; }
+.contact-form input, .contact-form textarea, .contact-form select, .admin-input, .admin-select {
+  width: 100%; padding: 0.7rem 0.9rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-main);
+  font-family: inherit; font-size: 0.9rem; margin-bottom: 0.9rem;
+}
+.contact-form input:focus, .contact-form textarea:focus, .admin-input:focus, .admin-select:focus {
+  outline: none; border-color: var(--primary-gold);
+}
+.contact-form textarea { min-height: 110px; resize: vertical; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border-color); padding: 2.5rem 0 5rem;
+  text-align: center; color: var(--text-dim); font-size: 0.75rem;
+}
+footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6vw, 3.5rem); color: var(--text-muted); opacity: 0.35; margin-bottom: 1rem; }
+
+/* Lightbox */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+#lightboxImg { max-height: 78vh; max-width: 100%; object-fit: contain; border-radius: 8px; }
+.lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--border-color); background: rgba(0,0,0,0.5);
+  color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+#lightboxPrev { left: 1rem; } #lightboxNext { right: 1rem; }
+#lightboxClose {
+  position: absolute; top: 1.25rem; right: 1.25rem; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--border-color); background: rgba(0,0,0,0.5);
+  color: #fff; font-size: 1.5rem; cursor: pointer;
+}
+
+/* FABs */
+.fab {
+  position: fixed; z-index: 850; width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--border-color); background: color-mix(in srgb, var(--bg-dark) 90%, transparent);
+  backdrop-filter: blur(12px); color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.fab:hover { color: var(--primary-gold); border-color: var(--border-gold); transform: scale(1.06); }
+#scrollTopBtn { bottom: 1.5rem; left: 1.5rem; opacity: 0; pointer-events: none; }
+#scrollTopBtn.show { opacity: 1; pointer-events: auto; }
+#adminBtn { bottom: 1.5rem; right: 1.5rem; }
+
+/* Admin modal */
+#adminOverlay { z-index: 1100; align-items: flex-start; padding-top: 3vh; overflow-y: auto; }
+#adminPanel {
+  width: min(720px, 96vw); max-height: 92vh; overflow: hidden; display: flex; flex-direction: column;
+  background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+#adminPanel .admin-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color);
+}
+#adminPanel .admin-body { overflow-y: auto; padding: 1.25rem; flex: 1; }
+.admin-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem; }
+.admin-tab {
+  padding: 0.4rem 0.75rem; border-radius: 9999px; border: 1px solid var(--border-color);
+  background: transparent; color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.08em; cursor: pointer; font-family: inherit;
+}
+.admin-tab.active { border-color: var(--primary-gold); color: var(--primary-gold); }
+.admin-section { display: none; }
+.admin-section.active { display: block; }
+.admin-section h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; color: var(--primary-gold); }
+.admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 600px) { .admin-row { grid-template-columns: 1fr; } }
+.admin-actions { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); }
+.admin-btn {
+  flex: 1; padding: 0.75rem; border-radius: var(--radius-sm); border: none; cursor: pointer;
+  background: linear-gradient(135deg, #e5c158, #a68128); color: #0a0c10; font-weight: 600;
+  font-family: inherit; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem;
+}
+.admin-btn-secondary {
+  padding: 0.75rem 1rem; border-radius: var(--radius-sm); cursor: pointer;
+  background: transparent; border: 1px solid var(--border-color); color: var(--text-muted);
+  font-family: inherit; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.admin-btn-secondary:hover { border-color: var(--primary-gold); color: var(--primary-gold); }
+.list-block { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 0.75rem; }
+.list-block .mini-row { display: flex; gap: 0.4rem; margin-bottom: 0.4rem; }
+.ux-flag { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+#uxToast {
+  position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%) translateY(12px);
+  background: var(--bg-card); border: 1px solid var(--border-gold); color: var(--text-main);
+  padding: 0.6rem 1.1rem; border-radius: 9999px; font-size: 0.8rem; opacity: 0;
+  pointer-events: none; transition: all 0.25s ease; z-index: 1200;
+}
+#uxToast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.hidden { display: none !important; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.35); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-gold); }
+</style>
+</head>
+<body data-build="photo-portfolio-ui-2026-08-16">
+
+<!-- NAV -->
+<header id="siteNav">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-brand">
+      <div class="nav-logo" id="navLogoLetter">K</div>
+      <div>
+        <div class="brand-title" id="txt-navTitle" style="font-size:1.15rem;line-height:1.15">KAAD Portraits</div>
+        <div id="txt-navTagline" style="font-size:0.65rem;color:var(--primary-gold);letter-spacing:0.12em;text-transform:uppercase">Photography</div>
+      </div>
+    </a>
+    <nav class="nav-links" id="desktopNavLinks">
+      <a href="#home">Home</a>
+      <a href="#album">Album</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#terms">Terms</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle theme" aria-label="Toggle light/dark">◐</button>
+      <button class="icon-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div id="mobileMenu">
+  <button class="icon-btn" id="mobileMenuClose" style="position:absolute;top:1.25rem;right:var(--space-page)">×</button>
+  <a href="#home" class="mobile-nav-link">Home</a>
+  <a href="#album" class="mobile-nav-link">Album</a>
+  <a href="#gallery" class="mobile-nav-link">Gallery</a>
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#terms" class="mobile-nav-link">Terms</a>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#testimonials" class="mobile-nav-link">Stories</a>
+  <a href="#contact" class="mobile-nav-link">Contact</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg"><img id="heroImg" src="" alt="" /></div>
+    <div class="container hero-content">
+      <p class="section-label" id="txt-heroEyebrow">Portfolio</p>
+      <h1 id="txt-heroTitle">Capturing Unforgettable Moments</h1>
+      <p id="txt-heroBio">Visual storytelling across editorial, landscape, and portrait work.</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-primary">View gallery</a>
+        <a href="#contact" class="btn btn-ghost">Book a session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM (featured photo + link) -->
+  <section id="album" class="section">
+    <div class="container">
+      <p class="section-label" id="txt-albumLabel">Featured album</p>
+      <h2 class="section-title" id="txt-albumTitle">Client portfolio album</h2>
+      <p class="section-sub" id="txt-albumSub">Open the featured frame to view the full linked gallery.</p>
+      <div class="album-card glass" style="padding:1.25rem">
+        <div class="album-photo">
+          <img id="albumFeatureImg" src="" alt="Featured album" />
+          <a id="albumFeatureLink" class="overlay-link" href="#" target="_blank" rel="noopener noreferrer">
+            <span class="open-badge">Open album ↗</span>
+          </a>
+        </div>
+        <div>
+          <h3 id="txt-albumCardTitle" class="brand-title" style="font-size:1.5rem;margin-bottom:0.75rem">Official portfolio album</h3>
+          <p id="txt-albumCardText" style="color:var(--text-muted);margin-bottom:1.25rem">High-resolution selections delivered via shared album link.</p>
+          <a id="albumCta" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open full album</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label" id="txt-galleryLabel">Gallery</p>
+      <h2 class="section-title" id="txt-galleryHeading">Curated work</h2>
+      <div class="cat-bar" id="categoryNav"></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <p id="galleryEmpty" class="hidden">No photographs in this collection yet.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label" id="txt-servicesLabel">Services</p>
+      <h2 class="section-title" id="txt-servicesHeading">What I offer</h2>
+      <p class="section-sub" id="txt-servicesSub">Session packages — fully configurable in admin.</p>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- TERMS -->
+  <section id="terms" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label" id="txt-termsLabel">Terms</p>
+      <h2 class="section-title" id="txt-termsHeading">Working together</h2>
+      <div class="terms-list" id="termsList"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container about-grid">
+      <div>
+        <p class="section-label" id="txt-aboutLabel">About</p>
+        <h2 class="section-title" id="txt-aboutHeading">The quiet search for quiet light</h2>
+        <p id="txt-aboutText" style="color:var(--text-muted)">A visual storyteller working across editorial, landscape, and portrait work.</p>
+      </div>
+      <div class="glass" style="padding:1.5rem">
+        <p style="color:var(--text-muted);font-size:0.9rem" id="txt-aboutSide">Every frame is tuned for mood, precision, and lasting delivery through shared albums.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label" id="txt-testimonialsLabel">Client stories</p>
+      <h2 class="section-title" id="txt-testimonialsHeading">Kind words</h2>
+      <div id="testimonialsRoot"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container contact-grid">
+      <div>
+        <p class="section-label" id="txt-contactLabel">Contact</p>
+        <h2 class="section-title" id="txt-contactHeading">Let's create</h2>
+        <div class="contact-meta" style="margin-top:1rem">
+          <button type="button" id="copyEmailBtn"><span>✉</span> <span id="dispEmail">email</span></button>
+          <button type="button" id="copyPhoneBtn"><span>☎</span> <span id="dispPhone">phone</span></button>
+          <a id="linkWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="hidden"><span>💬</span> WhatsApp</a>
+          <a id="linkInstagram" href="#" target="_blank" rel="noopener noreferrer" class="hidden"><span>▣</span> Instagram</a>
+          <a id="linkFacebook" href="#" target="_blank" rel="noopener noreferrer" class="hidden"><span>f</span> Facebook</a>
+          <p id="dispHours" style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-dim)"></p>
+          <p id="dispAddress" style="font-size:0.85rem;color:var(--text-dim)"></p>
+        </div>
+      </div>
+      <form class="glass contact-form" id="contactForm" style="padding:1.5rem" onsubmit="return false;">
+        <label>Name</label>
+        <input id="cfName" type="text" placeholder="Your name" required />
+        <label>Email</label>
+        <input id="cfEmail" type="email" placeholder="you@email.com" required />
+        <label>Service interest</label>
+        <select id="cfService"><option value="">Select…</option></select>
+        <label>Message</label>
+        <textarea id="cfMessage" placeholder="Tell me about your session"></textarea>
+        <button type="submit" class="btn btn-primary" id="cfSubmit">Send enquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-title" id="txt-footerHeading">PORTFOLIO</div>
+    <p id="txt-footerCopyright">© 2026 Portfolio</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightboxModal" class="modal-overlay">
+  <button id="lightboxClose" aria-label="Close">×</button>
+  <button id="lightboxPrev" class="lb-nav" aria-label="Previous">‹</button>
+  <button id="lightboxNext" class="lb-nav" aria-label="Next">›</button>
+  <div style="text-align:center;max-width:100%">
+    <img id="lightboxImg" src="" alt="" />
+    <p id="lightboxCaption" style="margin-top:0.75rem;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#9aa4b5"></p>
+  </div>
+</div>
+
+<button id="scrollTopBtn" class="fab" title="Back to top" aria-label="Back to top">↑</button>
+<button id="adminBtn" class="fab" title="Admin">✎</button>
+<div id="uxToast" role="status" aria-live="polite"></div>
+
+<!-- Admin -->
+<div id="adminOverlay" class="modal-overlay">
+  <div id="adminPanel">
+    <div class="admin-head">
+      <div>
+        <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary-gold)">Admin</div>
+        <div style="font-size:0.95rem;font-family:var(--font-heading)">Site configuration</div>
+      </div>
+      <button class="icon-btn" id="adminClose">×</button>
+    </div>
+    <div class="admin-body">
+      <div id="pinStep">
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem">Enter admin PIN to unlock.</p>
+        <input id="pinInput" class="admin-input" type="password" placeholder="••••" autocomplete="off" />
+        <button id="pinSubmit" class="admin-btn" style="width:100%">Unlock</button>
+        <p id="pinError" class="hidden" style="color:#f87171;font-size:0.8rem;margin-top:0.75rem">Invalid PIN — editor stays locked</p>
+      </div>
+      <div id="editorStep" class="hidden">
+        <div class="admin-tabs" id="adminTabs">
+          <button type="button" class="admin-tab active" data-tab="studio">Studio</button>
+          <button type="button" class="admin-tab" data-tab="texts">Texts</button>
+          <button type="button" class="admin-tab" data-tab="album">Album</button>
+          <button type="button" class="admin-tab" data-tab="gallery">Gallery</button>
+          <button type="button" class="admin-tab" data-tab="services">Services</button>
+          <button type="button" class="admin-tab" data-tab="terms">Terms</button>
+          <button type="button" class="admin-tab" data-tab="about">About</button>
+          <button type="button" class="admin-tab" data-tab="testimonials">Stories</button>
+          <button type="button" class="admin-tab" data-tab="contact">Contact</button>
+          <button type="button" class="admin-tab" data-tab="ux">UX</button>
+        </div>
+
+        <div class="admin-section active" data-tab="studio">
+          <h4>Studio / Hero</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Studio name</label>
+          <input id="editStudioName" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Tagline</label>
+          <input id="editTagline" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Hero title</label>
+          <input id="editHeroTitle" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Hero bio</label>
+          <textarea id="editHeroBio" class="admin-input" rows="3"></textarea>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Hero image URL</label>
+          <input id="editHero" class="admin-input" type="url" placeholder="https://..." />
+        </div>
+
+        <div class="admin-section" data-tab="texts">
+          <h4>Headings &amp; text</h4>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.75rem">Use <code>*bold*</code> and <code>_italic_</code>. Line breaks are kept.</p>
+          <div id="editTextFields"></div>
+        </div>
+
+        <div class="admin-section" data-tab="album">
+          <h4>Featured album</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Album title</label>
+          <input id="editAlbumTitle" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Album description</label>
+          <textarea id="editAlbumDesc" class="admin-input" rows="2"></textarea>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Featured photo URL (display)</label>
+          <input id="editAlbumPhoto" class="admin-input" type="url" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Album link (opens full album)</label>
+          <input id="editAlbumUrl" class="admin-input" type="url" placeholder="https://photos.app.goo.gl/..." />
+        </div>
+
+        <div class="admin-section" data-tab="gallery">
+          <h4>Gallery albums</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addCategory">+ Add album</button>
+          </div>
+          <div id="editCategories"></div>
+        </div>
+
+        <div class="admin-section" data-tab="services">
+          <h4>Services</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addService">+ Add service</button>
+          </div>
+          <div id="editServices"></div>
+        </div>
+
+        <div class="admin-section" data-tab="terms">
+          <h4>Terms</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addTerm">+ Add term</button>
+          </div>
+          <div id="editTerms"></div>
+        </div>
+
+        <div class="admin-section" data-tab="about">
+          <h4>About</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">About heading</label>
+          <input id="editAboutHeading" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">About text</label>
+          <textarea id="editAboutText" class="admin-input" rows="4"></textarea>
+          <label style="font-size:0.7rem;color:var(--text-muted)">About side note</label>
+          <textarea id="editAboutSide" class="admin-input" rows="2"></textarea>
+        </div>
+
+        <div class="admin-section" data-tab="testimonials">
+          <h4>Testimonials</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addTestimonial">+ Add</button>
+          </div>
+          <div id="editTestimonials"></div>
+        </div>
+
+        <div class="admin-section" data-tab="contact">
+          <h4>Contact</h4>
+          <div class="admin-row">
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">Email</label><input id="editEmail" class="admin-input" type="email" /></div>
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">Phone</label><input id="editPhone" class="admin-input" /></div>
+          </div>
+          <div class="admin-row">
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">WhatsApp</label><input id="editWhatsapp" class="admin-input" placeholder="9198… or wa.me link" /></div>
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">Instagram URL</label><input id="editInstagram" class="admin-input" type="url" /></div>
+          </div>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Facebook URL</label>
+          <input id="editFacebook" class="admin-input" type="url" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Address</label>
+          <input id="editAddress" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Working hours</label>
+          <input id="editHours" class="admin-input" />
+        </div>
+
+        <div class="admin-section" data-tab="ux">
+          <h4>UI / UX</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Testimonials layout</label>
+          <select id="ux-testimonialsLayout" class="admin-select">
+            <option value="horizontal">Horizontal scroll</option>
+            <option value="vertical">Vertical grid</option>
+          </select>
+          <div id="editUxFlags" style="margin-top:0.75rem"></div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-actions hidden" id="adminFooterActions">
+      <button type="button" class="admin-btn" id="saveBtn">Save &amp; publish</button>
+      <button type="button" class="admin-btn-secondary" id="cancelBtn">Cancel</button>
+    </div>
+    <p id="saveMsg" class="hidden" style="text-align:center;font-size:0.8rem;padding:0 1rem 1rem"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  const WORKER_URL = 'https://kaad-portraits.sk6594246.workers.dev';
+  const ALL_CATEGORY = '__ALL__';
+
+  const UX_DEFAULTS = {
+    testimonialsLayout: 'horizontal',
+    testimonialsHideScrollbar: true,
+    navShrinkOnScroll: true,
+    convertGoogleDriveLinks: true,
+    lightboxSwipe: true,
+    copyToast: true,
+    contactFormValidation: true,
+  };
+
+  const UX_FLAG_LABELS = {
+    testimonialsHideScrollbar: 'Testimonials: hide scrollbar',
+    navShrinkOnScroll: 'Nav: shrink on scroll',
+    convertGoogleDriveLinks: 'Images: convert Google Drive links',
+    lightboxSwipe: 'Lightbox: touch swipe',
+    copyToast: 'Toast after copy',
+    contactFormValidation: 'Contact form validation',
+  };
+
+  const DEFAULT_SERVICES = [
+    { id: 's1', title: 'Wedding storytelling', tagline: 'Full day coverage', price: 'Starting at ₹1,49,999', description: 'Ceremony to reception with edited gallery delivery.', features: ['Up to 10 hours', 'Online album', '500+ edited photos'] },
+    { id: 's2', title: 'Portrait session', tagline: 'Studio or location', price: 'Starting at ₹24,999', description: 'Editorial portraits and personal branding.', features: ['2-hour shoot', '25 retouched images', 'Commercial usage'] },
+  ];
+
+  const DEFAULT_TERMS = [
+    { id: 't1', title: '1. Booking & retainer', content: 'A non-refundable retainer secures your date. Remaining balance is due before delivery of final files.' },
+    { id: 't2', title: '2. Delivery', content: 'Proof galleries are shared via private album link. Final selects remain available for an agreed period.' },
+    { id: 't3', title: '3. Usage', content: 'Clients receive a personal usage license. Studio retains copyright of original work.' },
+  ];
+
+  let siteData = {
+    hero: '',
+    photographer: { name: 'KAAD Portraits', tagline: 'Photography', heroTitle: '', bio: '' },
+    album: { title: 'Client portfolio album', description: '', photoUrl: '', url: '' },
+    contact: { email: '', phone: '', instagram: '', whatsapp: '', facebook: '', address: '', workingHours: '' },
+    categories: [],
+    testimonials: [],
+    services: [],
+    terms: [],
+    about: { heading: '', text: '', side: '' },
+    styles: {},
+    ux: {}
+  };
+
+  let lightboxPhotos = [];
+  let lightboxIndex = 0;
+
+  try {
+    if (localStorage.getItem('kaad-theme') === 'light') document.documentElement.classList.add('theme-light');
+  } catch (e) {}
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function getUx() {
+    return Object.assign({}, UX_DEFAULTS, (siteData && siteData.ux) || {});
+  }
+
+  function isDirectImageUrl(url) {
+    if (!url || typeof url !== 'string') return false;
+    const cleaned = url.trim().split('?')[0].split('#')[0].toLowerCase();
+    return /\.(jpe?g|png|gif|webp|avif|bmp|svg)$/i.test(cleaned);
+  }
+
+  function extractGoogleDriveId(url) {
+    if (!url) return '';
+    const u = url.trim();
+    let m = u.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (m) return m[1];
+    m = u.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (m) return m[1];
+    m = u.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    return m ? m[1] : '';
+  }
+
+  function resolveImageUrl(raw) {
+    if (!raw || typeof raw !== 'string') return '';
+    const url = raw.trim();
+    if (!url) return '';
+    if (isDirectImageUrl(url)) return url;
+    if (url.includes('lh3.googleusercontent.com') || url.includes('googleusercontent.com/d/')) return url;
+    const ux = getUx();
+    if (ux.convertGoogleDriveLinks === false) return url;
+    if (!/drive\.google\.com|docs\.google\.com/i.test(url)) return url;
+    const id = extractGoogleDriveId(url);
+    return id ? 'https://lh3.googleusercontent.com/d/' + id : url;
+  }
+
+  function showUxToast(message) {
+    const toast = document.getElementById('uxToast');
+    if (!toast || !getUx().copyToast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(showUxToast._t);
+    showUxToast._t = setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+
+  const TEXT_KEYS = {
+    navTitle:            { label: 'Nav — studio name', defaultContent: 'KAAD Portraits' },
+    navTagline:          { label: 'Nav — tagline', defaultContent: 'Photography' },
+    heroEyebrow:         { label: 'Hero — eyebrow', defaultContent: 'Portfolio' },
+    heroTitle:           { label: 'Hero — title', defaultContent: 'Capturing Unforgettable Moments' },
+    heroBio:             { label: 'Hero — bio', defaultContent: 'Visual storytelling across editorial, landscape, and portrait work.' },
+    albumLabel:          { label: 'Album — section label', defaultContent: 'Featured album' },
+    albumTitle:          { label: 'Album — heading', defaultContent: 'Client portfolio album' },
+    albumSub:            { label: 'Album — subtitle', defaultContent: 'Open the featured frame to view the full linked gallery.' },
+    albumCardTitle:      { label: 'Album — card title', defaultContent: 'Official portfolio album' },
+    albumCardText:       { label: 'Album — card text', defaultContent: 'High-resolution selections delivered via shared album link.' },
+    galleryLabel:        { label: 'Gallery — label', defaultContent: 'Gallery' },
+    galleryHeading:      { label: 'Gallery — heading', defaultContent: 'Curated work' },
+    servicesLabel:       { label: 'Services — label', defaultContent: 'Services' },
+    servicesHeading:     { label: 'Services — heading', defaultContent: 'What I offer' },
+    servicesSub:         { label: 'Services — subtitle', defaultContent: 'Session packages — fully configurable in admin.' },
+    termsLabel:          { label: 'Terms — label', defaultContent: 'Terms' },
+    termsHeading:        { label: 'Terms — heading', defaultContent: 'Working together' },
+    aboutLabel:          { label: 'About — label', defaultContent: 'About' },
+    aboutHeading:        { label: 'About — heading', defaultContent: 'The quiet *search* for quiet _light_' },
+    aboutText:           { label: 'About — body', defaultContent: 'A visual storyteller working across editorial, landscape, and portrait work.' },
+    aboutSide:           { label: 'About — side note', defaultContent: 'Every frame is tuned for mood, precision, and lasting delivery through shared albums.' },
+    testimonialsLabel:   { label: 'Stories — label', defaultContent: 'Client stories' },
+    testimonialsHeading: { label: 'Stories — heading', defaultContent: 'Kind words' },
+    contactLabel:        { label: 'Contact — label', defaultContent: 'Contact' },
+    contactHeading:      { label: 'Contact — heading', defaultContent: "Let's create" },
+    footerHeading:       { label: 'Footer — large title', defaultContent: 'PORTFOLIO' },
+    footerCopyright:     { label: 'Footer — copyright', defaultContent: '© 2026 Portfolio' },
+  };
+
+  function renderMiniMarkdown(raw) {
+    let text = escapeHtml(raw == null ? '' : String(raw));
+    text = text.replace(/\*(.+?)\*/g, '<strong>$1</strong>');
+    text = text.replace(/_(.+?)_/g, '<em>$1</em>');
+    text = text.replace(/\n/g, '<br>');
+    return text;
+  }
+
+  function getTextContent(key) {
+    const cfg = TEXT_KEYS[key];
+    const saved = (siteData.styles && siteData.styles[key]) || {};
+    if (saved.content != null && String(saved.content).length) return String(saved.content);
+    // bridge from structured fields
+    const p = siteData.photographer || {};
+    const a = siteData.album || {};
+    const about = siteData.about || {};
+    const bridges = {
+      navTitle: p.name,
+      navTagline: p.tagline,
+      heroTitle: p.heroTitle,
+      heroBio: p.bio,
+      albumTitle: a.title,
+      albumSub: a.description,
+      albumCardTitle: a.title,
+      albumCardText: a.description,
+      aboutHeading: about.heading,
+      aboutText: about.text,
+      aboutSide: about.side,
+    };
+    if (bridges[key]) return bridges[key];
+    return cfg ? cfg.defaultContent : '';
+  }
+
+  function applyAllTexts() {
+    Object.keys(TEXT_KEYS).forEach(key => {
+      const el = document.getElementById('txt-' + key);
+      if (!el) return;
+      const content = getTextContent(key);
+      el.innerHTML = renderMiniMarkdown(content);
+      const saved = (siteData.styles && siteData.styles[key]) || {};
+      if (saved.fontSize) el.style.fontSize = saved.fontSize;
+      if (saved.textAlign) el.style.textAlign = saved.textAlign;
+    });
+    const name = getTextContent('navTitle') || 'KAAD Portraits';
+    const plainName = String(name).replace(/\*/g, '').replace(/_/g, '');
+    document.getElementById('navLogoLetter').textContent = (plainName.trim()[0] || 'K').toUpperCase();
+    document.title = plainName;
+  }
+
+  function mergeDefaults(data) {
+
+    const d = data || {};
+    d.photographer = Object.assign({ name: 'KAAD Portraits', tagline: 'Photography', heroTitle: '', bio: '' }, d.photographer || {});
+    d.album = Object.assign({ title: '', description: '', photoUrl: '', url: '' }, d.album || {});
+    d.contact = Object.assign({ email: '', phone: '', instagram: '', whatsapp: '', facebook: '', address: '', workingHours: '' }, d.contact || {});
+    d.about = Object.assign({ heading: '', text: '', side: '' }, d.about || {});
+    d.categories = Array.isArray(d.categories) ? d.categories : [];
+    d.testimonials = Array.isArray(d.testimonials) ? d.testimonials : [];
+    d.services = Array.isArray(d.services) && d.services.length ? d.services : DEFAULT_SERVICES.slice();
+    d.terms = Array.isArray(d.terms) && d.terms.length ? d.terms : DEFAULT_TERMS.slice();
+    d.styles = d.styles || {};
+    d.ux = d.ux || {};
+    // legacy styles → text fields
+    if (!d.photographer.name && d.styles.navTitle && d.styles.navTitle.content) d.photographer.name = d.styles.navTitle.content;
+    if (!d.about.heading && d.styles.aboutHeading && d.styles.aboutHeading.content) d.about.heading = d.styles.aboutHeading.content;
+    if (!d.about.text && d.styles.aboutText && d.styles.aboutText.content) d.about.text = d.styles.aboutText.content;
+    if (!d.album.photoUrl && d.hero) d.album.photoUrl = d.hero;
+    return d;
+  }
+
+  function applyStudioTexts() {
+    applyAllTexts();
+  }
+
+  function renderAlbum() {
+    const a = siteData.album || {};
+    const photo = resolveImageUrl(a.photoUrl || siteData.hero || '');
+    const link = a.url || '#';
+    // album titles/body come from styles via applyAllTexts(); structured album fields still drive photo/link
+    const img = document.getElementById('albumFeatureImg');
+    img.src = photo || '';
+    img.style.display = photo ? 'block' : 'none';
+    ['albumFeatureLink', 'albumCta'].forEach(id => {
+      const el = document.getElementById(id);
+      el.href = link;
+      if (!a.url) el.classList.add('hidden'); else el.classList.remove('hidden');
+    });
+  }
+
+  function renderServices() {
+    const grid = document.getElementById('servicesGrid');
+    const sel = document.getElementById('cfService');
+    grid.innerHTML = '';
+    sel.innerHTML = '<option value="">Select…</option>';
+    (siteData.services || []).forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'service-card glass';
+      const feats = (s.features || []).map(f => '<li>' + renderMiniMarkdown(f) + '</li>').join('');
+      card.innerHTML = '<div class="section-label">' + renderMiniMarkdown(s.tagline || 'Service') + '</div><h3>' + renderMiniMarkdown(s.title || '') + '</h3><div class="price">' + escapeHtml(s.price || '') + '</div><p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.75rem">' + renderMiniMarkdown(s.description || '') + '</p><ul>' + feats + '</ul>';
+      grid.appendChild(card);
+      const opt = document.createElement('option');
+      opt.value = s.title || '';
+      opt.textContent = s.title || 'Service';
+      sel.appendChild(opt);
+    });
+  }
+
+  function renderTerms() {
+    const list = document.getElementById('termsList');
+    list.innerHTML = '';
+    (siteData.terms || []).forEach(t => {
+      const el = document.createElement('div');
+      el.className = 'term-item glass';
+      el.innerHTML = '<h3>' + renderMiniMarkdown(t.title || '') + '</h3><p>' + renderMiniMarkdown(t.content || '') + '</p>';
+      list.appendChild(el);
+    });
+  }
+
+  function renderContactLinks() {
+    const c = siteData.contact || {};
+    document.getElementById('dispEmail').textContent = c.email || 'Email';
+    document.getElementById('dispPhone').textContent = c.phone || 'Phone';
+    document.getElementById('dispHours').textContent = c.workingHours || '';
+    document.getElementById('dispAddress').textContent = c.address || '';
+    const wa = document.getElementById('linkWhatsapp');
+    if (c.whatsapp) {
+      const href = /wa\.me|api\.whatsapp/i.test(c.whatsapp) ? c.whatsapp : 'https://wa.me/' + String(c.whatsapp).replace(/\D/g, '');
+      wa.href = href; wa.classList.remove('hidden');
+    } else wa.classList.add('hidden');
+    const ig = document.getElementById('linkInstagram');
+    if (c.instagram) { ig.href = c.instagram; ig.classList.remove('hidden'); } else ig.classList.add('hidden');
+    const fb = document.getElementById('linkFacebook');
+    if (c.facebook) { fb.href = c.facebook; fb.classList.remove('hidden'); } else fb.classList.add('hidden');
+  }
+
+  function renderCategoryNav() {
+    const nav = document.getElementById('categoryNav');
+    nav.innerHTML = '';
+    const cats = siteData.categories || [];
+    let total = 0;
+    cats.forEach(c => { total += (c.photos || []).length; });
+    function makeBtn(key, label, count, active) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cat-btn' + (active ? ' active' : '');
+      b.textContent = label + (count != null ? ' (' + count + ')' : '');
+      b.addEventListener('click', () => renderGallery(key));
+      return b;
+    }
+    if (cats.length > 1) nav.appendChild(makeBtn(ALL_CATEGORY, 'All', total, true));
+    cats.forEach((c, i) => nav.appendChild(makeBtn(c.name, c.name, (c.photos || []).length, cats.length === 1 && i === 0)));
+  }
+
+  function renderGallery(categoryName) {
+    const grid = document.getElementById('galleryGrid');
+    const empty = document.getElementById('galleryEmpty');
+    grid.innerHTML = '';
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      const isAll = categoryName === ALL_CATEGORY && btn.textContent.indexOf('All') === 0;
+      const isMatch = btn.textContent.indexOf(categoryName) === 0;
+      btn.classList.toggle('active', categoryName === ALL_CATEGORY ? isAll : isMatch);
+    });
+    const cats = siteData.categories || [];
+    let photos = [];
+    if (categoryName === ALL_CATEGORY) {
+      cats.forEach(c => (c.photos || []).forEach(p => photos.push(Object.assign({ _cat: c.name }, p))));
+    } else {
+      const cat = cats.find(c => c.name === categoryName);
+      photos = ((cat && cat.photos) || []).map(p => Object.assign({ _cat: categoryName }, p));
+    }
+    lightboxPhotos = photos;
+    if (!photos.length) {
+      empty.classList.remove('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+    photos.forEach((p, idx) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+      card.innerHTML = '<img src="' + escapeHtml(resolveImageUrl(p.url)) + '" alt="' + escapeHtml(p.name || '') + '" loading="lazy" /><div class="cap">' + escapeHtml(p.name || p._cat || '') + '</div>';
+      card.addEventListener('click', () => openLightbox(idx));
+      grid.appendChild(card);
+    });
+  }
+
+  function renderTestimonials() {
+    const root = document.getElementById('testimonialsRoot');
+    root.innerHTML = '';
+    const list = siteData.testimonials || [];
+    if (!list.length) {
+      root.innerHTML = '<p style="color:var(--text-muted)">No testimonials yet.</p>';
+      return;
+    }
+    const ux = getUx();
+    const vertical = ux.testimonialsLayout === 'vertical';
+    const wrap = document.createElement('div');
+    wrap.className = vertical ? 'testimonials-vertical' : 'testimonials-track' + (ux.testimonialsHideScrollbar ? ' hide-scroll' : '');
+    list.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 't-card glass';
+      card.innerHTML = '<p class="quote">"' + renderMiniMarkdown(t.quote || '') + '"</p><div class="who">' + renderMiniMarkdown(t.name || '') + '</div>';
+      wrap.appendChild(card);
+    });
+    root.appendChild(wrap);
+  }
+
+  function openLightbox(i) {
+    if (!lightboxPhotos.length) return;
+    lightboxIndex = (i + lightboxPhotos.length) % lightboxPhotos.length;
+    const p = lightboxPhotos[lightboxIndex];
+    document.getElementById('lightboxImg').src = resolveImageUrl(p.url);
+    document.getElementById('lightboxCaption').textContent = p.name || '';
+    document.getElementById('lightboxModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightboxModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  async function loadSiteData() {
+    try {
+      const res = await fetch(WORKER_URL);
+      if (!res.ok) throw new Error('Worker ' + res.status);
+      const data = await res.json();
+      siteData = mergeDefaults(data);
+      applyStudioTexts();
+      if (siteData.hero) {
+        document.getElementById('heroImg').src = resolveImageUrl(siteData.hero);
+        document.getElementById('ogImageMeta').setAttribute('content', resolveImageUrl(siteData.hero));
+      }
+      renderAlbum();
+      renderServices();
+      renderTerms();
+      renderContactLinks();
+      renderCategoryNav();
+      const cats = siteData.categories || [];
+      if (cats.length) renderGallery(cats.length > 1 ? ALL_CATEGORY : cats[0].name);
+      else document.getElementById('galleryEmpty').classList.remove('hidden');
+      renderTestimonials();
+    } catch (err) {
+      console.error(err);
+      siteData = mergeDefaults(siteData);
+      applyStudioTexts();
+      renderServices();
+      renderTerms();
+      document.getElementById('galleryEmpty').classList.remove('hidden');
+      document.getElementById('galleryEmpty').textContent = 'Could not load content from Worker. Showing defaults.';
+    }
+  }
+
+  // Theme
+  document.getElementById('themeToggleBtn').addEventListener('click', () => {
+    document.documentElement.classList.toggle('theme-light');
+    try {
+      localStorage.setItem('kaad-theme', document.documentElement.classList.contains('theme-light') ? 'light' : 'dark');
+    } catch (e) {}
+  });
+
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('siteNav');
+    if (getUx().navShrinkOnScroll) nav.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTopBtn').classList.toggle('show', window.scrollY > 400);
+  });
+
+  document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile menu
+  const mobileMenu = document.getElementById('mobileMenu');
+  document.getElementById('mobileMenuBtn').addEventListener('click', () => mobileMenu.classList.add('open'));
+  document.getElementById('mobileMenuClose').addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mobile-nav-link').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Lightbox controls
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => openLightbox(lightboxIndex - 1));
+  document.getElementById('lightboxNext').addEventListener('click', () => openLightbox(lightboxIndex + 1));
+  document.getElementById('lightboxModal').addEventListener('click', e => { if (e.target.id === 'lightboxModal') closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightboxModal').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
+  });
+
+  // Copy contact
+  function copyText(text, label) {
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => showUxToast((label || 'Copied') + ' to clipboard')).catch(() => {});
+  }
+  document.getElementById('copyEmailBtn').addEventListener('click', () => copyText((siteData.contact || {}).email, 'Email'));
+  document.getElementById('copyPhoneBtn').addEventListener('click', () => copyText((siteData.contact || {}).phone, 'Phone'));
+
+  // Contact form → mailto
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const c = siteData.contact || {};
+    const name = document.getElementById('cfName').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const service = document.getElementById('cfService').value;
+    const message = document.getElementById('cfMessage').value.trim();
+    if (getUx().contactFormValidation && (!name || !email)) {
+      showUxToast('Please fill name and email');
+      return;
+    }
+    const subject = encodeURIComponent('Enquiry' + (service ? ': ' + service : ''));
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nService: ' + service + '\n\n' + message);
+    if (c.email) window.location.href = 'mailto:' + c.email + '?subject=' + subject + '&body=' + body;
+    else showUxToast('No contact email configured');
+  });
+
+  // Admin
+  const adminOverlay = document.getElementById('adminOverlay');
+  const pinStep = document.getElementById('pinStep');
+  const editorStep = document.getElementById('editorStep');
+  const adminFooter = document.getElementById('adminFooterActions');
+  let adminPin = '';
+
+  function openAdmin() {
+    adminOverlay.classList.add('open');
+    pinStep.classList.remove('hidden');
+    editorStep.classList.add('hidden');
+    adminFooter.classList.add('hidden');
+    document.getElementById('pinInput').value = '';
+    document.getElementById('pinError').classList.add('hidden');
+    document.getElementById('saveMsg').classList.add('hidden');
+  }
+  function closeAdmin() {
+    adminOverlay.classList.remove('open');
+    adminPin = '';
+  }
+  document.getElementById('adminBtn').addEventListener('click', openAdmin);
+  document.getElementById('adminClose').addEventListener('click', closeAdmin);
+  document.getElementById('cancelBtn').addEventListener('click', closeAdmin);
+
+  document.getElementById('pinSubmit').addEventListener('click', async () => {
+    const pin = document.getElementById('pinInput').value;
+    const pinError = document.getElementById('pinError');
+    const pinBtn = document.getElementById('pinSubmit');
+    pinError.classList.add('hidden');
+    if (!pin) {
+      pinError.textContent = 'Enter your admin PIN';
+      pinError.classList.remove('hidden');
+      return;
+    }
+    pinBtn.disabled = true;
+    pinBtn.textContent = 'Checking…';
+    try {
+      // Worker only accepts POST when PIN is correct (401 otherwise). Re-save current data as a verify probe.
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin, data: siteData }),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        pinError.textContent = result.error || 'Invalid PIN';
+        pinError.classList.remove('hidden');
+        adminPin = '';
+        pinStep.classList.remove('hidden');
+        editorStep.classList.add('hidden');
+        adminFooter.classList.add('hidden');
+        return;
+      }
+      adminPin = pin;
+      pinStep.classList.add('hidden');
+      editorStep.classList.remove('hidden');
+      adminFooter.classList.remove('hidden');
+      fillAdminForm();
+    } catch (err) {
+      pinError.textContent = 'Network error — could not verify PIN';
+      pinError.classList.remove('hidden');
+      adminPin = '';
+    } finally {
+      pinBtn.disabled = false;
+      pinBtn.textContent = 'Unlock';
+    }
+  });
+  document.getElementById('pinInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('pinSubmit').click();
+  });
+
+  document.querySelectorAll('.admin-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.admin-section[data-tab="' + tab.dataset.tab + '"]').classList.add('active');
+    });
+  });
+
+  function fillTextFields() {
+    const root = document.getElementById('editTextFields');
+    if (!root) return;
+    root.innerHTML = '';
+    Object.keys(TEXT_KEYS).forEach(key => {
+      const cfg = TEXT_KEYS[key];
+      const saved = (siteData.styles && siteData.styles[key]) || {};
+      const content = getTextContent(key);
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<label style="font-size:0.7rem;color:var(--text-muted)">' + escapeHtml(cfg.label) + '</label>' +
+        '<textarea class="admin-input text-content" data-key="' + key + '" rows="2">' + escapeHtml(content) + '</textarea>' +
+        '<div class="admin-row">' +
+        '<div><label style="font-size:0.65rem;color:var(--text-dim)">Font size</label>' +
+        '<input class="admin-input text-size" data-key="' + key + '" placeholder="e.g. 1.25rem" value="' + escapeHtml(saved.fontSize || '') + '" /></div>' +
+        '<div><label style="font-size:0.65rem;color:var(--text-dim)">Align</label>' +
+        '<select class="admin-select text-align" data-key="' + key + '">' +
+        '<option value="">Default</option>' +
+        '<option value="left"' + (saved.textAlign === 'left' ? ' selected' : '') + '>Left</option>' +
+        '<option value="center"' + (saved.textAlign === 'center' ? ' selected' : '') + '>Center</option>' +
+        '<option value="right"' + (saved.textAlign === 'right' ? ' selected' : '') + '>Right</option>' +
+        '</select></div></div>';
+      root.appendChild(block);
+    });
+  }
+
+  function fillAdminForm() {
+    fillTextFields();
+    const p = siteData.photographer || {};
+    document.getElementById('editStudioName').value = p.name || '';
+    document.getElementById('editTagline').value = p.tagline || '';
+    document.getElementById('editHeroTitle').value = p.heroTitle || '';
+    document.getElementById('editHeroBio').value = p.bio || '';
+    document.getElementById('editHero').value = siteData.hero || '';
+    const a = siteData.album || {};
+    document.getElementById('editAlbumTitle').value = a.title || '';
+    document.getElementById('editAlbumDesc').value = a.description || '';
+    document.getElementById('editAlbumPhoto').value = a.photoUrl || '';
+    document.getElementById('editAlbumUrl').value = a.url || '';
+    const about = siteData.about || {};
+    document.getElementById('editAboutHeading').value = about.heading || '';
+    document.getElementById('editAboutText').value = about.text || '';
+    document.getElementById('editAboutSide').value = about.side || '';
+    const c = siteData.contact || {};
+    document.getElementById('editEmail').value = c.email || '';
+    document.getElementById('editPhone').value = c.phone || '';
+    document.getElementById('editWhatsapp').value = c.whatsapp || '';
+    document.getElementById('editInstagram').value = c.instagram || '';
+    document.getElementById('editFacebook').value = c.facebook || '';
+    document.getElementById('editAddress').value = c.address || '';
+    document.getElementById('editHours').value = c.workingHours || '';
+    document.getElementById('ux-testimonialsLayout').value = getUx().testimonialsLayout || 'horizontal';
+    const flags = document.getElementById('editUxFlags');
+    flags.innerHTML = '';
+    Object.keys(UX_FLAG_LABELS).forEach(key => {
+      const lab = document.createElement('label');
+      lab.className = 'ux-flag';
+      const checked = getUx()[key] !== false;
+      lab.innerHTML = '<input type="checkbox" data-ux="' + key + '"' + (checked ? ' checked' : '') + '/> ' + escapeHtml(UX_FLAG_LABELS[key]);
+      flags.appendChild(lab);
+    });
+    renderEditCategories();
+    renderEditServices();
+    renderEditTerms();
+    renderEditTestimonials();
+  }
+
+  function renderEditCategories() {
+    const root = document.getElementById('editCategories');
+    root.innerHTML = '';
+    (siteData.categories || []).forEach((cat, ci) => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML = '<input class="admin-input cat-name" placeholder="Album name" value="' + escapeHtml(cat.name || '') + '" />' +
+        '<div class="photos"></div>' +
+        '<button type="button" class="admin-btn-secondary add-photo" style="margin-top:0.35rem">+ Photo</button> ' +
+        '<button type="button" class="admin-btn-secondary remove-cat" style="margin-top:0.35rem">Remove album</button>';
+      const photosEl = block.querySelector('.photos');
+      (cat.photos || []).forEach(ph => {
+        const row = document.createElement('div');
+        row.className = 'mini-row';
+        row.innerHTML = '<input class="admin-input photo-url" placeholder="Image URL" value="' + escapeHtml(ph.url || '') + '" />' +
+          '<input class="admin-input photo-name" placeholder="Caption" value="' + escapeHtml(ph.name || '') + '" />' +
+          '<button type="button" class="admin-btn-secondary rm-photo">×</button>';
+        row.querySelector('.rm-photo').onclick = () => row.remove();
+        photosEl.appendChild(row);
+      });
+      block.querySelector('.add-photo').onclick = () => {
+        const row = document.createElement('div');
+        row.className = 'mini-row';
+        row.innerHTML = '<input class="admin-input photo-url" placeholder="Image URL" />' +
+          '<input class="admin-input photo-name" placeholder="Caption" />' +
+          '<button type="button" class="admin-btn-secondary rm-photo">×</button>';
+        row.querySelector('.rm-photo').onclick = () => row.remove();
+        photosEl.appendChild(row);
+      };
+      block.querySelector('.remove-cat').onclick = () => block.remove();
+      root.appendChild(block);
+    });
+  }
+
+  document.getElementById('addCategory').addEventListener('click', () => {
+    if (!siteData.categories) siteData.categories = [];
+    siteData.categories.push({ name: 'New album', photos: [] });
+    renderEditCategories();
+  });
+
+  function renderEditServices() {
+    const root = document.getElementById('editServices');
+    root.innerHTML = '';
+    (siteData.services || []).forEach(s => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<input class="admin-input svc-title" placeholder="Title" value="' + escapeHtml(s.title || '') + '" />' +
+        '<input class="admin-input svc-tagline" placeholder="Tagline" value="' + escapeHtml(s.tagline || '') + '" />' +
+        '<input class="admin-input svc-price" placeholder="Price" value="' + escapeHtml(s.price || '') + '" />' +
+        '<textarea class="admin-input svc-desc" rows="2" placeholder="Description">' + escapeHtml(s.description || '') + '</textarea>' +
+        '<textarea class="admin-input svc-features" rows="2" placeholder="Features (one per line)">' + escapeHtml((s.features || []).join('\n')) + '</textarea>' +
+        '<button type="button" class="admin-btn-secondary rm-svc">Remove</button>';
+      block.querySelector('.rm-svc').onclick = () => block.remove();
+      root.appendChild(block);
+    });
+  }
+  document.getElementById('addService').addEventListener('click', () => {
+    siteData.services = siteData.services || [];
+    siteData.services.push({ id: 's' + Date.now(), title: 'New service', tagline: '', price: '', description: '', features: [] });
+    renderEditServices();
+  });
+
+  function renderEditTerms() {
+    const root = document.getElementById('editTerms');
+    root.innerHTML = '';
+    (siteData.terms || []).forEach(t => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<input class="admin-input term-title" placeholder="Title" value="' + escapeHtml(t.title || '') + '" />' +
+        '<textarea class="admin-input term-content" rows="2">' + escapeHtml(t.content || '') + '</textarea>' +
+        '<button type="button" class="admin-btn-secondary rm-term">Remove</button>';
+      block.querySelector('.rm-term').onclick = () => block.remove();
+      root.appendChild(block);
+    });
+  }
+  document.getElementById('addTerm').addEventListener('click', () => {
+    siteData.terms = siteData.terms || [];
+    siteData.terms.push({ id: 't' + Date.now(), title: 'New term', content: '' });
+    renderEditTerms();
+  });
+
+  function renderEditTestimonials() {
+    const root = document.getElementById('editTestimonials');
+    root.innerHTML = '';
+    (siteData.testimonials || []).forEach(t => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<input class="admin-input t-name" placeholder="Name" value="' + escapeHtml(t.name || '') + '" />' +
+        '<textarea class="admin-input t-quote" rows="2">' + escapeHtml(t.quote || '') + '</textarea>' +
+        '<input class="admin-input t-instagram" placeholder="Instagram URL" value="' + escapeHtml(t.instagram || '') + '" />' +
+        '<button type="button" class="admin-btn-secondary rm-t">Remove</button>';
+      block.querySelector('.rm-t').onclick = () => block.remove();
+      root.appendChild(block);
+    });
+  }
+  document.getElementById('addTestimonial').addEventListener('click', () => {
+    siteData.testimonials = siteData.testimonials || [];
+    siteData.testimonials.push({ name: '', quote: '', instagram: '' });
+    renderEditTestimonials();
+  });
+
+  document.getElementById('saveBtn').addEventListener('click', async () => {
+    const saveMsg = document.getElementById('saveMsg');
+    const pin = adminPin || document.getElementById('pinInput').value;
+    const newData = mergeDefaults({
+      hero: document.getElementById('editHero').value.trim(),
+      photographer: {
+        name: document.getElementById('editStudioName').value.trim(),
+        tagline: document.getElementById('editTagline').value.trim(),
+        heroTitle: document.getElementById('editHeroTitle').value.trim(),
+        bio: document.getElementById('editHeroBio').value.trim(),
+      },
+      album: {
+        title: document.getElementById('editAlbumTitle').value.trim(),
+        description: document.getElementById('editAlbumDesc').value.trim(),
+        photoUrl: document.getElementById('editAlbumPhoto').value.trim(),
+        url: document.getElementById('editAlbumUrl').value.trim(),
+      },
+      about: {
+        heading: document.getElementById('editAboutHeading').value.trim(),
+        text: document.getElementById('editAboutText').value.trim(),
+        side: document.getElementById('editAboutSide').value.trim(),
+      },
+      contact: {
+        email: document.getElementById('editEmail').value.trim(),
+        phone: document.getElementById('editPhone').value.trim(),
+        whatsapp: document.getElementById('editWhatsapp').value.trim(),
+        instagram: document.getElementById('editInstagram').value.trim(),
+        facebook: document.getElementById('editFacebook').value.trim(),
+        address: document.getElementById('editAddress').value.trim(),
+        workingHours: document.getElementById('editHours').value.trim(),
+      },
+      categories: [],
+      services: [],
+      terms: [],
+      testimonials: [],
+      styles: siteData.styles || {},
+      ux: Object.assign({}, siteData.ux || {}),
+    });
+
+    newData.ux.testimonialsLayout = document.getElementById('ux-testimonialsLayout').value;
+    document.querySelectorAll('#editUxFlags input[data-ux]').forEach(cb => {
+      newData.ux[cb.getAttribute('data-ux')] = cb.checked;
+    });
+
+    document.querySelectorAll('#editCategories > .list-block').forEach(block => {
+      const name = block.querySelector('.cat-name').value.trim();
+      if (!name) return;
+      const photos = [];
+      block.querySelectorAll('.photos .mini-row').forEach(row => {
+        const url = row.querySelector('.photo-url').value.trim();
+        const pname = row.querySelector('.photo-name').value.trim();
+        if (url) photos.push({ url, name: pname });
+      });
+      newData.categories.push({ name, photos });
+    });
+
+    document.querySelectorAll('#editServices > .list-block').forEach(block => {
+      newData.services.push({
+        id: 's' + Math.random().toString(36).slice(2, 8),
+        title: block.querySelector('.svc-title').value.trim(),
+        tagline: block.querySelector('.svc-tagline').value.trim(),
+        price: block.querySelector('.svc-price').value.trim(),
+        description: block.querySelector('.svc-desc').value.trim(),
+        features: block.querySelector('.svc-features').value.split('\n').map(x => x.trim()).filter(Boolean),
+      });
+    });
+
+    document.querySelectorAll('#editTerms > .list-block').forEach(block => {
+      newData.terms.push({
+        id: 't' + Math.random().toString(36).slice(2, 8),
+        title: block.querySelector('.term-title').value.trim(),
+        content: block.querySelector('.term-content').value.trim(),
+      });
+    });
+
+    document.querySelectorAll('#editTestimonials > .list-block').forEach(block => {
+      newData.testimonials.push({
+        name: block.querySelector('.t-name').value.trim(),
+        quote: block.querySelector('.t-quote').value.trim(),
+        instagram: block.querySelector('.t-instagram').value.trim(),
+      });
+    });
+
+    // Text styles from Texts tab (*bold* _italic_ supported)
+    newData.styles = newData.styles || {};
+    document.querySelectorAll('#editTextFields .text-content').forEach(ta => {
+      const key = ta.getAttribute('data-key');
+      if (!key) return;
+      const sizeEl = document.querySelector('#editTextFields .text-size[data-key="' + key + '"]');
+      const alignEl = document.querySelector('#editTextFields .text-align[data-key="' + key + '"]');
+      newData.styles[key] = {
+        content: ta.value,
+        fontSize: sizeEl ? sizeEl.value.trim() : '',
+        textAlign: alignEl ? alignEl.value : '',
+      };
+    });
+    // keep structured fields aligned with primary text keys
+    if (newData.styles.navTitle) newData.photographer.name = newData.styles.navTitle.content || newData.photographer.name;
+    if (newData.styles.navTagline) newData.photographer.tagline = newData.styles.navTagline.content || newData.photographer.tagline;
+    if (newData.styles.heroTitle) newData.photographer.heroTitle = newData.styles.heroTitle.content || newData.photographer.heroTitle;
+    if (newData.styles.heroBio) newData.photographer.bio = newData.styles.heroBio.content || newData.photographer.bio;
+    if (newData.styles.aboutHeading) newData.about.heading = newData.styles.aboutHeading.content || newData.about.heading;
+    if (newData.styles.aboutText) newData.about.text = newData.styles.aboutText.content || newData.about.text;
+    if (newData.styles.aboutSide) newData.about.side = newData.styles.aboutSide.content || newData.about.side;
+    if (newData.styles.albumTitle) newData.album.title = newData.styles.albumTitle.content || newData.album.title;
+    if (newData.styles.albumCardText) newData.album.description = newData.styles.albumCardText.content || newData.album.description;
+
+    saveMsg.classList.add('hidden');
+    try {
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin, data: newData }),
+      });
+      const result = await res.json();
+      if (!res.ok) {
+        saveMsg.textContent = result.error || 'Save failed';
+        saveMsg.style.color = '#f87171';
+        saveMsg.classList.remove('hidden');
+        if ((result.error || '').toLowerCase().includes('pin')) {
+          document.getElementById('pinError').classList.remove('hidden');
+          pinStep.classList.remove('hidden');
+          editorStep.classList.add('hidden');
+          adminFooter.classList.add('hidden');
+        }
+        return;
+      }
+      siteData = mergeDefaults(newData);
+      applyStudioTexts();
+      if (siteData.hero) {
+        document.getElementById('heroImg').src = resolveImageUrl(siteData.hero);
+        document.getElementById('ogImageMeta').setAttribute('content', resolveImageUrl(siteData.hero));
+      }
+      renderAlbum();
+      renderServices();
+      renderTerms();
+      renderContactLinks();
+      renderCategoryNav();
+      const cats = siteData.categories || [];
+      if (cats.length) renderGallery(cats.length > 1 ? ALL_CATEGORY : cats[0].name);
+      renderTestimonials();
+      saveMsg.textContent = 'Saved & published';
+      saveMsg.style.color = '#4ade80';
+      saveMsg.classList.remove('hidden');
+      setTimeout(closeAdmin, 1000);
+    } catch (err) {
+      saveMsg.textContent = 'Network error saving changes';
+      saveMsg.style.color = '#f87171';
+      saveMsg.classList.remove('hidden');
+    }
+  });
+
+  loadSiteData();
+})();
+</script>
+</body>
+</html>
